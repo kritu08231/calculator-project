@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script>
+        function appendToDisplay(value) {
+            document.getElementById("expression").value += value;
+        }
+        function clearDisplay() {
+            document.getElementById("expression").value = "";
+        }
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Calculator Project</h1>
+        <form method="POST">
+            <input type="text" id="expression"  name="expression" value="{{ result if result is not none else '' }}" readonly>
+            <div id="keys">
+                <button type="button" class="button operator-button" onclick="appendToDisplay('+')">+</button>
+                <button type="button" class="button" onclick="appendToDisplay('7')">7</button>
+                <button type="button" class="button" onclick="appendToDisplay('8')">8</button>
+                <button type="button" class="button" onclick="appendToDisplay('9')">9</button>
+                <button type="button" class="button operator-button" onclick="appendToDisplay('-')">-</button>
+
+                <button type="button" class="button" onclick="appendToDisplay('4')">4</button>
+                <button type="button" class="button" onclick="appendToDisplay('5')">5</button>
+                <button type="button" class="button" onclick="appendToDisplay('6')">6</button>
+                <button type="button" class="button operator-button" onclick="appendToDisplay('*')">*</button>
+
+                <button type="button" class="button" onclick="appendToDisplay('1')">1</button>
+                <button type="button" class="button" onclick="appendToDisplay('2')">2</button>
+                <button type="button" class="button" onclick="appendToDisplay('3')">3</button>
+                <button type="button" class="button operator-button" onclick="appendToDisplay('/')">/</button>
+
+                <button type="button" class="button" onclick="appendToDisplay('0')">0</button>
+                <button type="button" class="button" onclick="appendToDisplay('.')">.</button>
+                <button type="button" class="button" onclick="clearDisplay()">C</button>
+                <button type="submit" class="button operator-button">=</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
